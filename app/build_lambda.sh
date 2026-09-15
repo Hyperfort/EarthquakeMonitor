@@ -8,7 +8,7 @@ artifact="$project_dir/ingestion.zip"
 rm -rf "$build_dir" "$artifact"
 mkdir -p "$build_dir"
 
-uv pip install --target "$build_dir" pymysql requests
+uv pip install --target "$build_dir" pymysql requests boto3
 cp "$project_dir/lambda_ingestion.py" "$build_dir/"
 
 cd "$build_dir"
