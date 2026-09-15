@@ -1,0 +1,4 @@
+__pycache__/
+.venv/
+lambda_build/
+ingestion.zip

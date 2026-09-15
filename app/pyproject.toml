@@ -1,0 +1,15 @@
+[project]
+name            = "rhyperior"
+version         = "0.1.0"
+description     = "A FastAPI-based microservice that exposes earthquake data ingested from the USGS API"
+requires-python = ">=3.10"
+
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "PyMySQL",
+    "requests",
+    "boto3"
+]
+
+[tool.uv]

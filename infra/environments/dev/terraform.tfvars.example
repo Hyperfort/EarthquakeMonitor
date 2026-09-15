@@ -1,0 +1,2 @@
+db_password = "replace-with-a-local-password"
+api_image   = "123456789012.dkr.ecr.us-east-2.amazonaws.com/rhyperior:latest"
