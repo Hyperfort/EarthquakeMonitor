@@ -7,14 +7,11 @@ from datetime import datetime, timedelta, timezone
 
 USGS_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query"
 METRIC_NAMESPACE = "EarthquakeMonitor/SLI"
-FRESHNESS_THRESHOLD_SECONDS = 15 * 60
+FRESHNESS_THRESHOLD_SECONDS = 900
 
 
-def publish_freshness_metrics(endtime, newest_event_timestamp=None, starttime=None):
+def publish_freshness_metrics(endtime, newest_event_timestamp, starttime):
     """Publish the freshness SLI even when ingestion fails upstream."""
-    if starttime is None:
-        starttime = endtime - timedelta(minutes=30)
-
     freshness_seconds = (
         max(0, int((endtime - newest_event_timestamp).total_seconds()))
         if newest_event_timestamp
