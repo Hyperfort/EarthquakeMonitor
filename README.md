@@ -100,11 +100,11 @@ terraform -chdir=infra/environments/dev validate
 
 ## Build the Lambda Package
 
-The package includes `lambda_ingestion.py`, `pymysql`, `requests`, and their dependencies:
+The package includes `lambda_ingestion.py`, `pymysql`, `requests`, `boto3`, and their dependencies. `boto3` is required because the Lambda publishes CloudWatch metrics for freshness SLOs.
 
 ```sh
 sh app/build_lambda.sh
-unzip -l app/ingestion.zip | grep -E 'lambda_ingestion.py|pymysql|requests'
+unzip -l app/ingestion.zip | grep -E 'lambda_ingestion.py|pymysql|requests|boto3'
 ```
 
 Terraform expects this file at `app/ingestion.zip`. Do not commit the artifact or the temporary build directory.
